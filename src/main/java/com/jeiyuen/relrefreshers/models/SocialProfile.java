@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 
 @Entity
@@ -13,7 +14,7 @@ public class SocialProfile{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(mappedBy = "socialProfile")
-    // @JoinColumn(name="social_user")
-    private SocialUser user;
+    @OneToOne
+    @JoinColumn(name="social_user_id")
+    private SocialUser socialUser;
 }
