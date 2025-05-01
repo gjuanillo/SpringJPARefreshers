@@ -53,9 +53,22 @@ public class DataInitializer {
             groupRepository.save(group1);
             groupRepository.save(group2);
 
+            user1.getGroups().add(group1);
+            user2.getGroups().add(group1);
+            user2.getGroups().add(group2);
+            user3.getGroups().add(group2);
+
+            userRepository.save(user1);
+            userRepository.save(user2);
+            userRepository.save(user3);
+
             Post post1 = new Post();
             Post post2 = new Post();
             Post post3 = new Post();
+
+            post1.setSocialUser(user1);
+            post1.setSocialUser(user2);
+            post1.setSocialUser(user3);
 
             postRepository.save(post1);
             postRepository.save(post2);
@@ -65,9 +78,9 @@ public class DataInitializer {
             SocialProfile profile2 = new SocialProfile();
             SocialProfile profile3 = new SocialProfile();
 
-            profile1.setSocialUser(user1);
-            profile2.setSocialUser(user2);
-            profile3.setSocialUser(user3);
+            profile1.setUser(user1);
+            profile2.setUser(user2);
+            profile3.setUser(user3);
 
             profileRepository.save(profile1);
             profileRepository.save(profile2);

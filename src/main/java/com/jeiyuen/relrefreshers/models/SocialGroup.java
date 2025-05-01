@@ -1,5 +1,7 @@
 package com.jeiyuen.relrefreshers.models;
 
+import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 import jakarta.persistence.Entity;
@@ -16,7 +18,7 @@ public class SocialGroup{
     private Long id;
 
     @ManyToMany(mappedBy = "groups")
-    private Set<SocialUser> socialUsers;
+    private Set<SocialUser> socialUsers = new HashSet<>();
 
     public SocialGroup() {
     }
@@ -36,6 +38,11 @@ public class SocialGroup{
     }
     public void setSocialUsers(Set<SocialUser> socialUsers) {
         this.socialUsers = socialUsers;
+    }
+
+    @Override
+    public int hashCode(){
+        return Objects.hash(id);
     }
 
 }

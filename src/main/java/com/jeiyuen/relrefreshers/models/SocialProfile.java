@@ -16,13 +16,14 @@ public class SocialProfile{
 
     @OneToOne
     @JoinColumn(name="social_user_id")
-    private SocialUser socialUser;
+    private SocialUser user;
 
     public SocialProfile() {
     }
-    public SocialProfile(Long id, SocialUser socialUser) {
+
+    public SocialProfile(Long id, SocialUser user) {
         this.id = id;
-        this.socialUser = socialUser;
+        this.user = user;
     }
 
     public Long getId() {
@@ -33,12 +34,12 @@ public class SocialProfile{
         this.id = id;
     }
 
-    public SocialUser getSocialUser() {
-        return socialUser;
+    public SocialUser getUser() {
+        return user;
     }
 
-    public void setSocialUser(SocialUser socialUser) {
-        this.socialUser = socialUser;
+    public void setUser(SocialUser user) {
+        this.user = user;
     }
 
 }
