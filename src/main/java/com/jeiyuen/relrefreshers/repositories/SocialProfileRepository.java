@@ -1,5 +1,9 @@
 package com.jeiyuen.relrefreshers.repositories;
 
-public interface SocialProfileRepository{
+import com.jeiyuen.relrefreshers.models.SocialProfile;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface SocialProfileRepository extends JpaRepository<SocialProfile, Long>{
 
 }

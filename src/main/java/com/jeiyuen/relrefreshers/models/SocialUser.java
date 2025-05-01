@@ -31,4 +31,46 @@ public class SocialUser {
     @ManyToMany
     @JoinTable(name = "user_group", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
     private Set<SocialGroup> groups = new HashSet<>();
+
+    public SocialUser() {
+    }
+    public SocialUser(Long id, SocialProfile socialProfile, List<Post> posts, Set<SocialGroup> groups) {
+        this.id = id;
+        this.socialProfile = socialProfile;
+        this.posts = posts;
+        this.groups = groups;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public SocialProfile getSocialProfile() {
+        return socialProfile;
+    }
+
+    public void setSocialProfile(SocialProfile socialProfile) {
+        this.socialProfile = socialProfile;
+    }
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
+    }
+
+    public Set<SocialGroup> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(Set<SocialGroup> groups) {
+        this.groups = groups;
+    }
+
 }

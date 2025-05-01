@@ -17,4 +17,25 @@ public class Post{
     @ManyToOne
     @JoinColumn(name="user_id")
     private SocialUser socialUser;
+
+    public Post() {
+    }
+    public Post(Long id, SocialUser socialUser) {
+        this.id = id;
+        this.socialUser = socialUser;
+    }
+
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public SocialUser getSocialUser() {
+        return socialUser;
+    }
+    public void setSocialUser(SocialUser socialUser) {
+        this.socialUser = socialUser;
+    }
+
 }

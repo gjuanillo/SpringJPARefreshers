@@ -17,4 +17,28 @@ public class SocialProfile{
     @OneToOne
     @JoinColumn(name="social_user_id")
     private SocialUser socialUser;
+
+    public SocialProfile() {
+    }
+    public SocialProfile(Long id, SocialUser socialUser) {
+        this.id = id;
+        this.socialUser = socialUser;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public SocialUser getSocialUser() {
+        return socialUser;
+    }
+
+    public void setSocialUser(SocialUser socialUser) {
+        this.socialUser = socialUser;
+    }
+
 }
