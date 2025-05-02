@@ -7,6 +7,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Post{
 
@@ -14,6 +16,7 @@ public class Post{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="user_id")
     private SocialUser socialUser;

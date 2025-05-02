@@ -7,6 +7,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class SocialProfile{
 
@@ -14,6 +16,7 @@ public class SocialProfile{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name="social_user_id")
     private SocialUser user;

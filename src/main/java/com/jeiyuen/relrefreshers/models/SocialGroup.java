@@ -10,6 +10,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class SocialGroup{
 
@@ -17,6 +19,7 @@ public class SocialGroup{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "groups")
     private Set<SocialUser> socialUsers = new HashSet<>();
 
