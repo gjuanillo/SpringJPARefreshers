@@ -10,7 +10,7 @@ import jakarta.persistence.OneToOne;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class SocialProfile{
+public class SocialProfile {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,8 +18,10 @@ public class SocialProfile{
 
     @JsonIgnore
     @OneToOne
-    @JoinColumn(name="social_user_id")
+    @JoinColumn(name = "social_user_id")
     private SocialUser user;
+
+    private String description;
 
     public SocialProfile() {
     }
@@ -43,6 +45,17 @@ public class SocialProfile{
 
     public void setUser(SocialUser user) {
         this.user = user;
+        if(user.getSocialProfile() != this){
+            user.setSocialProfile(this);
+        }
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
 }
